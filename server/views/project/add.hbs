@@ -3,13 +3,13 @@
     <div class='card'>
       <!-- Imagen de tarjeta -->
       <div class='card-image'>
-        <img src='/images/paisaje.jpg' alt='Project Image' />
+        <img src='/images/project.jpg' alt='Project Image' />
         <span class='card-title white teal-text text-darken-4'>
           Agregar Proyecto
         </span>
       </div>
       <!-- Contenido de tarjeta -->
-       <form autocomplete='off' action='/project/add' method='POST'>
+      <form autocomplete='off' action='/project/add' method='POST'>
         <div class='card-content'>
           <div class='input-field'>
             <label for='project-name'>Nombre de tu idea de proyecto</label>
@@ -19,6 +19,9 @@
               name='name'
               id='project-name'
             />
+            {{#if errorModel.nameError}}
+            <span style="color:red;">🚩 {{errorModel.nameError}}</span>
+            {{/if}}
           </div>
           <div class='input-field'>
             <label for='project-description'>
@@ -29,6 +32,9 @@
               class="materialize-textarea"
               id='project-description'
             ></textarea>
+            {{#if errorModel.descriptionError}}
+            <span style="color:red;">🚩 {{errorModel.descriptionError}}</span>
+            {{/if}}
           </div>
         </div>
         <div class='card-action'>
